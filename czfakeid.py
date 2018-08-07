@@ -199,6 +199,53 @@ def get_telefon():
 
 	return telefon
 
+def get_stav(pohlavi,rok):
+	
+        now = datetime.datetime.now()
+        tento_rok = int(now.year)
+        vek = tento_rok - rok
+
+	stav_muzi = ['svobodný','svobodný','ženatý','ženatý','ženatý','ženatý','rozvedený','ovdovělý','ovdovělý']
+	stav_zeny = ['svobodná','svobodná','vdaná','vdaná','vdaná','vdaná','rozvedená','ovdovělá','ovdovělá']
+	
+	if vek < 21:
+                if pohlavi == "M":
+                        stav = stav_muzi[0]
+                elif pohlavi == "F":
+                        stav = stav_zeny[0]
+	elif vek < 28:
+		nahoda_stav = random.randint(0,2)
+                if pohlavi == "M":
+                        stav = stav_muzi[nahoda_stav]
+                elif pohlavi == "F":
+                        stav = stav_zeny[nahoda_stav]
+	elif vek < 48:
+		nahoda_stav = random.randint(1,6)
+                if pohlavi == "M":
+                        stav = stav_muzi[nahoda_stav]
+                elif pohlavi == "F":
+                        stav = stav_zeny[nahoda_stav]
+	elif vek < 60:
+		nahoda_stav = random.randint(2,6)
+                if pohlavi == "M":
+                        stav = stav_muzi[nahoda_stav]
+                elif pohlavi == "F":
+                        stav = stav_zeny[nahoda_stav]
+	else:
+		if pohlavi == "M":
+			nahoda_stav = random.randint(2,7)
+			stav = stav_muzi[nahoda_stav]
+		elif pohlavi == "F":
+			nahoda_stav = random.randint(2,8)
+			stav = stav_zeny[nahoda_stav]
+	return stav
+
+
+
+
+
+
+
 
 ''' program '''
 
@@ -207,7 +254,7 @@ if len(sys.argv) > 1:
 
 	if param.isdigit():
 		param = int(param)
-		print 'jméno;příjmení;pohlaví;datum narození;místo narození;rodné číslo;email;telefon'
+		print 'jméno;příjmení;pohlaví;datum narození;místo narození;rodné číslo;rodinný stav;email;telefon'
 		for x in xrange(param):
 			pohlavi = get_pohlavi()
 		        rok = get_rok_narozeni()
@@ -217,10 +264,11 @@ if len(sys.argv) > 1:
 		        jmeno = get_jmeno(pohlavi)
 		        prijmeni = get_prijmeni(pohlavi)
 		        misto_narozeni = get_misto_narozeni()
+			stav = get_stav(pohlavi,rok)
 			email = get_email(jmeno,prijmeni,rok)
 			telefon = get_telefon()
 		
-			print jmeno + ';' + prijmeni + ';' + pohlavi + ';' + str(den).zfill(2) + str(mesic).zfill(2) + str(rok) + ';' + misto_narozeni + ';' + rodne_cislo + ';' + email + ';' + str(telefon)
+			print jmeno + ';' + prijmeni + ';' + pohlavi + ';' + str(den).zfill(2) + str(mesic).zfill(2) + str(rok) + ';' + misto_narozeni + ';' + rodne_cislo + ';' + stav + ';' + email + ';' + str(telefon)
 			
 		sys.exit(0)
 
@@ -236,6 +284,7 @@ else:
 	jmeno = get_jmeno(pohlavi)
 	prijmeni = get_prijmeni(pohlavi)
 	misto_narozeni = get_misto_narozeni()
+	stav = get_stav(pohlavi,rok)
 	email = get_email(jmeno,prijmeni,rok)
 	telefon = get_telefon()
 
@@ -244,6 +293,7 @@ else:
 	print ' Pohlaví: '+ pohlavi
 	print ' Datum a místo narození: ' + str(den).zfill(2) + '.' + str(mesic).zfill(2) +'.' + str(rok) + ' ' + misto_narozeni
 	print ' Rodné číslo: ' + rodne_cislo
+	print ' Rodinný stav: ' + stav
 	print ' E-mail: ' + email
 	print ' Telefon: ' + str(telefon)
 	print ''
