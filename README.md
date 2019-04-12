@@ -9,8 +9,9 @@ Currently, the following attributes are being generated:
 * jméno (name) - one of 88 Czech male names and 65 female ones
 * příjmení (surname) - one of 68 most common Czech surnames (both male and female forms, therefore 136 at all)
 * pohlaví (gender) - male / female
-* datum narození (date of birth)
-* rodné číslo (national identification number)
+* datum narození (date of birth) - randomly generated to be within age 18-80
+* místo narození (place of birth) - one of Czech cities or district towns
+* rodné číslo (national identification number) - Czech personal identification number, whis is formed by the birth date, slash and divisible suffix
 * rodinný stav (civil status) - svobodný, svobodná (single) / ženatý, vdaná (married) / rozvedený, rozvedený (divorced) / ovdovělý, ovdovělá (widowed)
 * email - alias generated from name and surname or from the year of birth + one of common Czech freemail domains (and Gmail.com, which is also popular in CZ)
 * telefon (phone number) - nine digit mobile phone number, first three digits are one of czech mobile operators prefixes
