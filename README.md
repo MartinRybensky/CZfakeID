@@ -15,7 +15,8 @@ Currently, the following attributes are being generated:
 * email - alias generated from name and surname or from the year of birth + one of common Czech freemail domains (and Gmail.com, which is also popular in CZ)
 * telefon (phone number) - nine digit mobile phone number, first three digits are one of czech mobile operators prefixes
 
-##Usage:
+## Usage:
+
 ```
 ./czfakeid.py 10
 ```
@@ -54,8 +55,8 @@ If you execute the program without any parameter, only one identity will be gene
 
 ```
 
-** WARNING! 
-Use with caution! The output of CZfakeID program can be considered as personal private data, which are protected by law.
+## WARNING! 
+ ** Use with caution! The output of CZfakeID program can be considered as personal private data, which are protected by law.
 Altough the result is completely random, some use-cases of the generated output can be illegal.
 Responsibility goes to you, use at your own risk! **
 
