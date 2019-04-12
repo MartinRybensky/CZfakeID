@@ -56,7 +56,7 @@ If you execute the program without any parameter, only one identity will be gene
 ```
 
 ## WARNING! 
- ** Use with caution! The output of CZfakeID program can be considered as personal private data, which are protected by law.
+**Use with caution! The output of CZfakeID program can be considered as personal private data, which are protected by law.
 Altough the result is completely random, some use-cases of the generated output can be illegal.
 Responsibility goes to you, use at your own risk! **
 
